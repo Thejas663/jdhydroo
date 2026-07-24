@@ -19,7 +19,7 @@
     "react-hook-form": "^7.82.0",
     "react-intersection-observer": "^10.1.0",
     "react-router-dom": "^7.18.1",
-    "swiper": "^14.0.6",
+    "swiper": "^11.2.10",
     "yet-another-react-lightbox": "^3.32.1"
   },
   "devDependencies": {

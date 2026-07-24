@@ -1,11 +1,6 @@
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
-
-export interface Stat {
-  end: number;
-  suffix?: string;
-  label: string;
-}
+import type { Stat } from '../../data/stats';
 
 interface CounterProps {
   stat: Stat;

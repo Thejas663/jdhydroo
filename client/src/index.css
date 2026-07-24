@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
 
+/* Swiper CSS — imported globally to avoid TS verbatimModuleSyntax errors */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/effect-fade';
+
 @import "tailwindcss";
 
 @theme {
@@ -80,4 +86,26 @@ h1, h2, h3, h4, h5, h6 {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ── Client logos marquee ── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [style*="marquee"] {
+    animation: none !important;
+  }
+}
+
+/* ── Swiper custom overrides ── */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-primary) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--color-primary) !important;
 }

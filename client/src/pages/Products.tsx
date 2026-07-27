@@ -5,9 +5,13 @@ import PageBanner from '../components/ui/PageBanner';
 import { Section } from '../components/ui/Section';
 import { Container } from '../components/ui/Container';
 import { SectionHeading } from '../components/ui/SectionHeading';
+import { RevealCard } from '../components/ui/RevealCard';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import { products } from '../data/products';
 
 export default function Products() {
+  const introRef = useScrollReveal<HTMLDivElement>();
+
   return (
     <>
       <Helmet>
@@ -22,13 +26,15 @@ export default function Products() {
 
       <Section>
         <Container>
-          <SectionHeading eyebrow="We are Jaladhara" title="Our Products" />
-          <p className="text-body leading-relaxed mb-2">
-            We offer many types of products like Hydraulic Turbines, Valves, Slide Valve and many more.
-          </p>
-          <p className="text-body leading-relaxed">
-            We also provide solutions for all your electrical requirements.
-          </p>
+          <div ref={introRef}>
+            <SectionHeading eyebrow="We are Jaladhara" title="Our Products" />
+            <p className="text-body leading-relaxed mb-2">
+              We offer many types of products like Hydraulic Turbines, Valves, Slide Valve and many more.
+            </p>
+            <p className="text-body leading-relaxed">
+              We also provide solutions for all your electrical requirements.
+            </p>
+          </div>
         </Container>
       </Section>
 
@@ -36,8 +42,9 @@ export default function Products() {
         <Container>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, i) => (
-              <article
+              <RevealCard
                 key={product.slug}
+                delay={i * 100}
                 className="group bg-white border border-border rounded-sm overflow-hidden hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300"
               >
                 <div className="overflow-hidden h-48">
@@ -66,7 +73,7 @@ export default function Products() {
                     Read More <ArrowRight size={14} aria-hidden />
                   </Link>
                 </div>
-              </article>
+              </RevealCard>
             ))}
           </div>
         </Container>

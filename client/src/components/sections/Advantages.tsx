@@ -2,14 +2,17 @@ import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Counter } from '../ui/Counter';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { stats } from '../../data/stats';
 import { site } from '../../data/site';
 
 export default function Advantages() {
+  const blockRef = useScrollReveal<HTMLDivElement>();
+
   return (
     <Section>
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div ref={blockRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left — text + counters */}
           <div>
             <SectionHeading

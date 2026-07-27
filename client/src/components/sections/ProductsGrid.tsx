@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { products } from '../../data/products';
 import { ArrowRight } from 'lucide-react';
 
@@ -12,10 +13,12 @@ export default function ProductsGrid() {
     .map((slug) => products.find((p) => p.slug === slug))
     .filter(Boolean) as typeof products;
 
+  const blockRef = useScrollReveal<HTMLDivElement>();
+
   return (
     <Section alt>
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div ref={blockRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Side image */}
           <div className="hidden lg:block">
             <img

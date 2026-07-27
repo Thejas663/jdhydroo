@@ -5,9 +5,12 @@ import { Section } from '../components/ui/Section';
 import { Container } from '../components/ui/Container';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { ContactForm } from '../components/forms/ContactForm';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import { site } from '../data/site';
 
 export default function Contact() {
+  const blockRef = useScrollReveal<HTMLDivElement>();
+
   return (
     <>
       <Helmet>
@@ -22,7 +25,7 @@ export default function Contact() {
 
       <Section>
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div ref={blockRef} className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact details */}
             <div>
               <h2 className="font-display font-bold text-2xl text-heading mb-3">

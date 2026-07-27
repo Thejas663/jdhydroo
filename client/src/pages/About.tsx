@@ -7,6 +7,8 @@ import { Section } from '../components/ui/Section';
 import { Container } from '../components/ui/Container';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { Counter } from '../components/ui/Counter';
+import { RevealCard } from '../components/ui/RevealCard';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import { site } from '../data/site';
 import { stats } from '../data/stats';
 import { missionBlocks, aboutIntro } from '../data/about';
@@ -33,6 +35,9 @@ export default function About() {
 
   const showStats = stats.every((s) => s.end > 0);
 
+  const introRef = useScrollReveal<HTMLDivElement>();
+  const turbineBlockRef = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
+
   return (
     <>
       <Helmet>
@@ -48,7 +53,7 @@ export default function About() {
       {/* Intro */}
       <Section>
         <Container>
-          <div className="max-w-3xl">
+          <div ref={introRef} className="max-w-3xl">
             <img
               src={aboutIntro.iconImage}
               alt=""
@@ -68,7 +73,7 @@ export default function About() {
       {/* Turbine image + blurb + counters */}
       <Section alt>
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div ref={turbineBlockRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <button
               onClick={() => openLightbox(0)}
               className="block w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
@@ -105,8 +110,9 @@ export default function About() {
         <Container>
           <div className="space-y-16">
             {missionBlocks.map((block, i) => (
-              <div
+              <RevealCard
                 key={block.heading}
+                delay={i * 100}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
               >
                 <button
@@ -132,7 +138,7 @@ export default function About() {
                   </h4>
                   <p className="text-body leading-relaxed">{block.body}</p>
                 </div>
-              </div>
+              </RevealCard>
             ))}
           </div>
         </Container>

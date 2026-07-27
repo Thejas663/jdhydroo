@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { site } from '../../data/site';
 import { products } from '../../data/products';
+import { imageFallback } from '../../utils/imageFallback';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -16,9 +17,7 @@ export default function Footer() {
               src="/images/branding/logo-200.png"
               alt={site.name}
               className="h-12 w-auto mb-6"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = 'https://placehold.co/150x50?text=Logo';
-              }}
+              onError={imageFallback('https://placehold.co/150x50?text=Logo')}
             />
           </Link>
           <p className="text-sm leading-relaxed mb-6">{site.blurb}</p>

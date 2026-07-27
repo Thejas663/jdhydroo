@@ -4,6 +4,7 @@ import { Menu } from 'lucide-react';
 import NavDropdown from './NavDropdown';
 import { navItems } from '../../data/nav';
 import { site } from '../../data/site';
+import { imageFallback } from '../../utils/imageFallback';
 
 interface HeaderProps {
   onHamburgerClick: () => void;
@@ -32,10 +33,7 @@ export default function Header({ onHamburgerClick }: HeaderProps) {
             src="/images/branding/cropped-logo.png"
             alt={site.name}
             className="h-[50px] w-auto transition-all duration-300"
-            onError={(e) => {
-              // Graceful fallback if image does not exist yet
-              (e.target as HTMLImageElement).src = 'https://placehold.co/150x50?text=Jaladhara';
-            }}
+            onError={imageFallback('https://placehold.co/150x50?text=Jaladhara')}
           />
         </NavLink>
 

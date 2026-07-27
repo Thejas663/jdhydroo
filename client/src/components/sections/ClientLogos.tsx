@@ -1,6 +1,7 @@
 import { clients } from '../../data/clients';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
+import { imageFallback } from '../../utils/imageFallback';
 
 export default function ClientLogos() {
   return (
@@ -24,9 +25,7 @@ export default function ClientLogos() {
                     alt={client.name}
                     className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
                     loading="lazy"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = 'https://placehold.co/120x50?text=Partner';
-                    }}
+                    onError={imageFallback('https://placehold.co/120x50?text=Partner')}
                   />
                 </picture>
               </div>

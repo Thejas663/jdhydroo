@@ -7,6 +7,7 @@ import { Container } from '../components/ui/Container';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { RevealCard } from '../components/ui/RevealCard';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { imageFallback } from '../utils/imageFallback';
 import { products } from '../data/products';
 
 export default function Products() {
@@ -53,9 +54,7 @@ export default function Products() {
                     alt={product.title}
                     loading={i < 3 ? 'eager' : 'lazy'}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    onError={(e) => {
-                      e.currentTarget.src = `https://placehold.co/400x300?text=${encodeURIComponent(product.title)}`;
-                    }}
+                    onError={imageFallback(`https://placehold.co/400x300?text=${encodeURIComponent(product.title)}`)}
                   />
                 </div>
                 <div className="p-6">

@@ -5,6 +5,7 @@ import type { Swiper as SwiperType } from 'swiper';
 import { Link } from 'react-router-dom';
 import { slides } from '../../data/slides';
 import { Button } from '../ui/Button';
+import { imageFallback } from '../../utils/imageFallback';
 
 
 
@@ -57,9 +58,7 @@ export default function HeroSlider() {
                 alt={slide.alt}
                 loading={slide.loading}
                 className="absolute inset-0 w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = `https://placehold.co/1920x800?text=Slide+${i + 1}`;
-                }}
+                onError={imageFallback(`https://placehold.co/1920x800?text=Slide+${i + 1}`)}
               />
             </picture>
 

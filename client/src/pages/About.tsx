@@ -9,14 +9,13 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { Counter } from '../components/ui/Counter';
 import { RevealCard } from '../components/ui/RevealCard';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { imageFallback } from '../utils/imageFallback';
 import { site } from '../data/site';
 import { stats } from '../data/stats';
 import { missionBlocks, aboutIntro } from '../data/about';
 
 function withPlaceholderFallback(label: string) {
-  return (e: React.SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = `https://placehold.co/800x600?text=${encodeURIComponent(label)}`;
-  };
+  return imageFallback(`https://placehold.co/800x600?text=${encodeURIComponent(label)}`);
 }
 
 export default function About() {

@@ -2,6 +2,7 @@ import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { imageFallback } from '../../utils/imageFallback';
 import { advantages } from '../../data/advantages';
 import { CheckCircle2 } from 'lucide-react';
 
@@ -19,9 +20,7 @@ export default function AboutIndustry() {
               alt="Jaladhara engineering team at work"
               className="w-full h-auto rounded-sm shadow-md"
               loading="lazy"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = 'https://placehold.co/600x450?text=About+Industry';
-              }}
+              onError={imageFallback('https://placehold.co/600x450?text=About+Industry')}
             />
           </div>
 
@@ -52,9 +51,7 @@ export default function AboutIndustry() {
                 alt=""
                 aria-hidden
                 className="h-10 w-auto"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://placehold.co/100x40?text=Logo';
-                }}
+                onError={imageFallback('https://placehold.co/100x40?text=Logo')}
               />
             </div>
           </div>

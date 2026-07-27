@@ -3,6 +3,7 @@ import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { imageFallback } from '../../utils/imageFallback';
 import { products } from '../../data/products';
 import { ArrowRight } from 'lucide-react';
 
@@ -26,9 +27,7 @@ export default function ProductsGrid() {
               alt="Hydro power plant engineering — Jaladhara"
               className="w-full h-auto rounded-sm shadow-md"
               loading="lazy"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = 'https://placehold.co/600x450?text=Services+Overview';
-              }}
+              onError={imageFallback('https://placehold.co/600x450?text=Services+Overview')}
             />
           </div>
 

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { navItems } from '../../data/nav';
 import { site } from '../../data/site';
 import { useLockBodyScroll } from '../../hooks/useLockBodyScroll';
+import { imageFallback } from '../../utils/imageFallback';
 
 interface MobileDrawerProps {
   open: boolean;
@@ -49,9 +50,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             src="/images/branding/logo.png"
             alt={site.name}
             className="h-10 w-auto"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = 'https://placehold.co/100x40?text=Logo';
-            }}
+            onError={imageFallback('https://placehold.co/100x40?text=Logo')}
           />
           <button
             onClick={onClose}

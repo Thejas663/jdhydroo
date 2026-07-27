@@ -3,6 +3,7 @@ import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Counter } from '../ui/Counter';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { imageFallback } from '../../utils/imageFallback';
 import { stats } from '../../data/stats';
 import { site } from '../../data/site';
 
@@ -38,9 +39,7 @@ export default function Advantages() {
               alt="Hydro turbine — Jaladhara Hydro Solutions"
               className="w-full h-auto rounded-sm shadow-md"
               loading="lazy"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = 'https://placehold.co/600x400?text=Turbine+Image';
-              }}
+              onError={imageFallback('https://placehold.co/600x400?text=Turbine+Image')}
             />
           </div>
         </div>

@@ -5,6 +5,7 @@ import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { imageFallback } from '../../utils/imageFallback';
 import { Quote } from 'lucide-react';
 
 export default function Testimonials() {
@@ -46,9 +47,7 @@ export default function Testimonials() {
                       alt={`${t.name}'s photo`}
                       className="w-14 h-14 rounded-full object-cover"
                       loading="lazy"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = 'https://placehold.co/100?text=Avatar';
-                      }}
+                      onError={imageFallback('https://placehold.co/100?text=Avatar')}
                     />
                     <cite className="not-italic">
                       <span className="block font-display font-semibold text-heading text-base">

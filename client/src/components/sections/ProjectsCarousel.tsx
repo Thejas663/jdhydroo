@@ -5,6 +5,7 @@ import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { imageFallback } from '../../utils/imageFallback';
 import { projects } from '../../data/projects';
 
 export default function ProjectsCarousel() {
@@ -44,9 +45,7 @@ export default function ProjectsCarousel() {
                       alt={project.title}
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = 'https://placehold.co/400x250?text=Project+Image';
-                      }}
+                      onError={imageFallback('https://placehold.co/400x250?text=Project+Image')}
                     />
                   </picture>
                 </div>

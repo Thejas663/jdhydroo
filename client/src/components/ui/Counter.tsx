@@ -1,6 +1,13 @@
 import { useInView } from 'react-intersection-observer';
-import CountUp from 'react-countup';
+import CountUpImport from 'react-countup';
 import type { Stat } from '../../data/stats';
+
+// react-countup's CJS build isn't unwrapped consistently by Vite's bundler —
+// the default import can resolve to the whole module object instead of the
+// component itself (reproduces in both dev and the production build).
+const CountUp =
+  (CountUpImport as unknown as { default?: typeof CountUpImport }).default ??
+  CountUpImport;
 
 interface CounterProps {
   stat: Stat;

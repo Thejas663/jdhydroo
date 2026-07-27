@@ -26,8 +26,10 @@ const baseClass = [
 ].join(' ');
 
 const variants = {
-  solid: 'bg-primary text-white border-primary hover:bg-primary-h hover:border-primary-h',
-  outline: 'bg-transparent text-primary border-primary hover:bg-primary hover:text-white',
+  // Text stays the dark heading colour in every state — white/amber text on
+  // amber background fails WCAG AA (~2:1); heading-on-amber passes at 7.7:1.
+  solid: 'bg-primary text-heading border-primary hover:bg-primary-h hover:border-primary-h',
+  outline: 'bg-transparent text-heading border-heading hover:bg-primary hover:border-primary',
 };
 
 export function Button(props: ButtonProps) {

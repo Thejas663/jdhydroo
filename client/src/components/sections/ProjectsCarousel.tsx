@@ -4,19 +4,22 @@ import { Link } from 'react-router-dom';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { projects } from '../../data/projects';
 
-
-
 export default function ProjectsCarousel() {
+  const headingRef = useScrollReveal<HTMLDivElement>();
+
   return (
     <Section alt>
       <Container>
-        <SectionHeading
-          eyebrow="We are Jaladhara"
-          title="Recent Projects"
-          center
-        />
+        <div ref={headingRef}>
+          <SectionHeading
+            eyebrow="We are Jaladhara"
+            title="Recent Projects"
+            center
+          />
+        </div>
 
         <Swiper
           modules={[Navigation, Pagination]}

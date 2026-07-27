@@ -5,11 +5,13 @@ import PageBanner from '../components/ui/PageBanner';
 import { Section } from '../components/ui/Section';
 import { Container } from '../components/ui/Container';
 import { SectionHeading } from '../components/ui/SectionHeading';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import { products } from '../data/products';
 
 export default function ProductDetail() {
   const { slug } = useParams<{ slug: string }>();
   const product = products.find((p) => p.slug === slug);
+  const headingRef = useScrollReveal<HTMLDivElement>();
 
   if (!product) return <Navigate to="/products" replace />;
 
@@ -45,11 +47,13 @@ export default function ProductDetail() {
                 />
               </div>
 
-              <SectionHeading
-                eyebrow="We are Jaladhara"
-                title={product.title}
-                body={product.intro}
-              />
+              <div ref={headingRef}>
+                <SectionHeading
+                  eyebrow="We are Jaladhara"
+                  title={product.title}
+                  body={product.intro}
+                />
+              </div>
 
               <div className="mt-8 space-y-10">
                 {product.groups.map((group, gi) => (
@@ -87,7 +91,7 @@ export default function ProductDetail() {
                 aria-label="All Products navigation"
               >
                 <div
-                  className="px-5 py-4 font-display font-bold text-white"
+                  className="px-5 py-4 font-display font-bold text-heading"
                   style={{ backgroundColor: 'var(--color-primary)' }}
                 >
                   All Products
@@ -102,7 +106,7 @@ export default function ProductDetail() {
                             [
                               'flex items-center justify-between px-5 py-3 text-sm font-display font-semibold transition-colors',
                               isActive
-                                ? 'text-white bg-primary'
+                                ? 'text-heading bg-primary'
                                 : 'text-heading hover:text-primary hover:bg-surface-alt',
                             ].join(' ')
                           }

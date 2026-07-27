@@ -24,7 +24,7 @@ export default function Footer() {
           <p className="text-sm leading-relaxed mb-6">{site.blurb}</p>
           <Link
             to="/about"
-            className="inline-flex items-center gap-2 px-6 py-2 border border-primary text-primary text-sm font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-2 border border-primary text-primary text-sm font-semibold hover:bg-primary hover:text-heading transition-all duration-300"
           >
             About Company
           </Link>

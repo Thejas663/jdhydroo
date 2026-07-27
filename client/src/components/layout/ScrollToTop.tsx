@@ -25,7 +25,7 @@ export default function ScrollToTop() {
       className={[
         'fixed bottom-6 right-6 z-50',
         'w-10 h-10 flex items-center justify-center rounded-sm cursor-pointer',
-        'bg-primary text-white shadow-lg',
+        'bg-primary text-heading shadow-lg',
         'transition-all duration-300',
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none',
       ].join(' ')}

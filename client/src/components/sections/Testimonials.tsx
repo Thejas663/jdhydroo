@@ -4,19 +4,22 @@ import { testimonials } from '../../data/testimonials';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { Quote } from 'lucide-react';
 
-
-
 export default function Testimonials() {
+  const headingRef = useScrollReveal<HTMLDivElement>();
+
   return (
     <Section alt>
       <Container>
-        <SectionHeading
-          eyebrow="We are Jaladhara"
-          title="Client’s Reviews"
-          center
-        />
+        <div ref={headingRef}>
+          <SectionHeading
+            eyebrow="We are Jaladhara"
+            title="Client’s Reviews"
+            center
+          />
+        </div>
 
         <Swiper
           modules={[Autoplay, Pagination]}

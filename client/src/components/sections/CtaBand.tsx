@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/Button';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 export default function CtaBand() {
+  const contentRef = useScrollReveal<HTMLDivElement>();
+
   return (
     <section
       className="relative py-24 flex items-center justify-center text-center"
@@ -11,7 +14,7 @@ export default function CtaBand() {
         backgroundPosition: 'center',
       }}
     >
-      <div className="relative z-10 max-w-2xl px-6">
+      <div ref={contentRef} className="relative z-10 max-w-2xl px-6">
         <h2 className="font-display font-bold text-white text-3xl md:text-4xl leading-tight mb-6">
           We are committed to provide safe solution to our clients.
         </h2>

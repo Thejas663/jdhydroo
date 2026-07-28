@@ -77,8 +77,8 @@ export default function NavDropdown({ item }: NavDropdownProps) {
               className={({ isActive }) => [
                 'block px-5 py-2 text-sm font-display font-semibold transition-colors',
                 isActive
-                  ? 'text-primary bg-surface-alt'
-                  : 'text-heading hover:text-primary hover:bg-surface-alt',
+                  ? 'text-primary-dark bg-surface-alt'
+                  : 'text-heading hover:text-primary-dark hover:bg-surface-alt',
               ].join(' ')}
             >
               {child.label}

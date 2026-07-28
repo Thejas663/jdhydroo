@@ -58,7 +58,7 @@ export default function ProjectsCarousel() {
                   </p>
                   <Link
                     to={`/projects/${project.slug}`}
-                    className="text-sm font-semibold text-primary hover:text-primary-h transition-colors"
+                    className="text-sm font-semibold text-primary-dark hover:text-primary-h transition-colors"
                   >
                     View detail &rarr;
                   </Link>

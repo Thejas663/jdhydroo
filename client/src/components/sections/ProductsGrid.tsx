@@ -52,7 +52,7 @@ export default function ProductsGrid() {
                   <p className="text-sm text-body leading-relaxed mb-4">
                     {product.excerpt}
                   </p>
-                  <span className="inline-flex items-center gap-1 text-primary text-sm font-semibold">
+                  <span className="inline-flex items-center gap-1 text-primary-dark text-sm font-semibold">
                     Read more <ArrowRight size={14} aria-hidden />
                   </span>
                 </Link>

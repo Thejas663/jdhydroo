@@ -42,6 +42,11 @@ export default function PageBanner({
               <span className="text-white/60" aria-hidden>›</span>
             </li>
           ))}
+          {/* Bright amber is correct here — this sits on the dark banner
+              overlay/image, not on white. It only fails contrast right now
+              because the real banner background image doesn't exist yet
+              (placeholder falls through to a plain white page background);
+              this resolves on its own once a real image is supplied. */}
           <li aria-current="page" className="text-primary">
             {title}
           </li>

@@ -49,8 +49,8 @@ export default function Header({ onHamburgerClick }: HeaderProps) {
                 className={({ isActive }) => [
                   'font-display font-semibold text-[15px] tracking-wide transition-colors duration-200',
                   isActive
-                    ? 'text-primary'
-                    : 'text-heading hover:text-primary',
+                    ? 'text-primary-dark'
+                    : 'text-heading hover:text-primary-dark',
                 ].join(' ')}
               >
                 {item.label}

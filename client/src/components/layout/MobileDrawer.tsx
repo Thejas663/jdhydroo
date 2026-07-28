@@ -93,7 +93,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                             to={child.to}
                             className={({ isActive }) => [
                               'block px-3 py-2 text-sm font-display font-semibold transition-colors',
-                              isActive ? 'text-primary' : 'text-body hover:text-primary',
+                              isActive ? 'text-primary-dark' : 'text-body hover:text-primary-dark',
                             ].join(' ')}
                           >
                             {child.label}
@@ -107,7 +107,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                     to={item.to}
                     className={({ isActive }) => [
                       'block px-3 py-2 font-display font-semibold transition-colors',
-                      isActive ? 'text-primary' : 'text-heading hover:text-primary',
+                      isActive ? 'text-primary-dark' : 'text-heading hover:text-primary-dark',
                     ].join(' ')}
                   >
                     {item.label}

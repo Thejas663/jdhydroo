@@ -66,7 +66,7 @@ export default function Products() {
                   </p>
                   <Link
                     to={`/services/${product.slug}`}
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary-dark hover:underline"
                     aria-label={`Read more about ${product.title}`}
                   >
                     Read More <ArrowRight size={14} aria-hidden />

@@ -11,6 +11,7 @@
 @theme {
   --color-primary: var(--color-primary);
   --color-primary-h: var(--color-primary-hover);
+  --color-primary-dark: var(--color-primary-text);
   --color-heading: var(--color-heading);
   --color-body: var(--color-body);
   --color-surface: var(--color-surface);
@@ -36,6 +37,10 @@
   /* Brand colors */
   --color-primary:        #F5A623;
   --color-primary-hover:  #DB8F12;
+  /* Amber is ~2:1 on white — fails WCAG AA (4.5:1) as text. Use this darker
+     variant wherever amber renders as readable text (links, active nav
+     state, eyebrow labels) instead of as a background/border accent. */
+  --color-primary-text:   #9C6500;
 
   /* Neutrals */
   --color-heading:        #1B2431;

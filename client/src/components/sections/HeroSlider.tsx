@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination, EffectFade } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import { Link } from 'react-router-dom';
 import { slides } from '../../data/slides';
@@ -32,8 +32,7 @@ export default function HeroSlider() {
       <h1 className="sr-only">Jaladhara Hydro Solutions — Hydro Power, Water to Wire</h1>
 
       <Swiper
-        modules={[Autoplay, Navigation, Pagination, EffectFade]}
-        effect="fade"
+        modules={[Autoplay, Navigation, Pagination]}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
@@ -41,7 +40,7 @@ export default function HeroSlider() {
         }}
         navigation
         pagination={{ clickable: true }}
-        loop
+        rewind
         className="w-full"
         style={{ height: 'clamp(480px, 80vh, 800px)' }}
         onSwiper={(swiper) => {

@@ -19,7 +19,7 @@ export default function ProductDetail() {
   return (
     <>
       <Helmet>
-        <title>{product.title} – Jaladhara Hydro Solutions</title>
+        <title>{`${product.title} – Jaladhara Hydro Solutions`}</title>
         <meta name="description" content={product.excerpt} />
       </Helmet>
 

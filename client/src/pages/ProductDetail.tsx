@@ -5,6 +5,7 @@ import PageBanner from '../components/ui/PageBanner';
 import { Section } from '../components/ui/Section';
 import { Container } from '../components/ui/Container';
 import { SectionHeading } from '../components/ui/SectionHeading';
+import { TechnicalDataTable } from '../components/ui/TechnicalDataTable';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { imageFallback } from '../utils/imageFallback';
 import { products } from '../data/products';
@@ -53,6 +54,8 @@ export default function ProductDetail() {
                   body={product.intro}
                 />
               </div>
+
+              <TechnicalDataTable product={product} />
 
               <div className="mt-8 space-y-10">
                 {product.groups.map((group, gi) => (

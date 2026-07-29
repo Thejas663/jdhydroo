@@ -19,7 +19,7 @@ export function SectionHeading({
     <div className={clsx('mb-10', center && 'text-center mx-auto', className)}>
       {eyebrow && (
         <span
-          className="block text-sm font-semibold text-teal-text uppercase tracking-widest mb-2"
+          className="block font-mono text-sm font-medium text-teal-text uppercase tracking-widest mb-2"
         >
           {eyebrow}
         </span>

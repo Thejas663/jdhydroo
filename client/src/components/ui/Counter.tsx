@@ -19,7 +19,7 @@ export function Counter({ stat }: CounterProps) {
   return (
     <div ref={ref} className="text-center">
       <p
-        className="font-display font-bold text-4xl text-teal-text leading-none mb-1"
+        className="font-mono font-semibold text-4xl text-teal-text leading-none mb-1"
         aria-live="polite"
         aria-atomic="true"
       >

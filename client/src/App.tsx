@@ -8,9 +8,17 @@ import { site } from './data/site';
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Products = lazy(() => import('./pages/Products'));
+const ProductsValves = lazy(() => import('./pages/ProductsValves'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
+const Services = lazy(() => import('./pages/Services'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Certifications = lazy(() => import('./pages/Certifications'));
 const Contact = lazy(() => import('./pages/Contact'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const Terms = lazy(() => import('./pages/Terms'));
+const AccessibilityStatement = lazy(() => import('./pages/AccessibilityStatement'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+// Not yet mounted — see components/routing/LegacyServiceRedirect.tsx for why.
 
 const organizationJsonLd = {
   '@context': 'https://schema.org',
@@ -46,8 +54,15 @@ export default function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="products" element={<Products />} />
+            <Route path="products/valves" element={<ProductsValves />} />
             <Route path="services/:slug" element={<ProductDetail />} />
+            <Route path="services" element={<Services />} />
+            <Route path="projects" element={<Projects />} />
+            <Route path="certifications" element={<Certifications />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="terms" element={<Terms />} />
+            <Route path="accessibility-statement" element={<AccessibilityStatement />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

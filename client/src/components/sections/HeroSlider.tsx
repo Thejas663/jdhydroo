@@ -5,6 +5,7 @@ import type { Swiper as SwiperType } from 'swiper';
 import { Link } from 'react-router-dom';
 import { slides } from '../../data/slides';
 import { Button } from '../ui/Button';
+import { ContourDivider } from '../ui/ContourDivider';
 import { imageFallback } from '../../utils/imageFallback';
 
 
@@ -74,8 +75,8 @@ export default function HeroSlider() {
                 <div className="max-w-2xl mx-auto">
                   {slide.heading && (
                     <p
-                      className="font-display font-bold text-white leading-tight mb-4"
-                      style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}
+                      className="font-display font-bold text-white leading-[1.05] mb-4 text-balance"
+                      style={{ fontSize: 'clamp(36px, 5.5vw, 64px)' }}
                     >
                       {slide.heading}
                     </p>
@@ -100,6 +101,14 @@ export default function HeroSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Signature contour-line motif (Master Brief v2 §5) — the site's one
+          deliberately memorable visual moment. */}
+      <div className="absolute left-0 right-0 bottom-10 z-20 pointer-events-none px-[15px]">
+        <div className="mx-auto max-w-container">
+          <ContourDivider tone="dark" />
+        </div>
+      </div>
     </section>
   );
 }

@@ -70,25 +70,40 @@
   --section-y: clamp(60px, 8vw, 110px);
 }
 
-/* ── Base resets & styles ── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* ── Base resets & styles ──
+   Wrapped in Tailwind's own `base` layer (not left as plain unlayered
+   CSS) so utility classes can actually override it. Per the CSS Cascade
+   Layers spec, unlayered rules always beat layered rules for
+   normal-priority declarations regardless of specificity or source
+   order — an unlayered h1-h6 color rule here would silently win against
+   every text-* color utility applied to a heading, no matter how
+   specific. This was a real, previously-undiscovered bug: PageBanner's
+   white <h1>, CtaBand's white <h2>, and About's teal <h4> mission
+   headings were all silently rendering --color-penstock instead of
+   their intended color, confirmed via computed-style checks. Don't
+   move the Swiper override rules below into a layer, though — Swiper's
+   own CSS is also unlayered, so those need to stay unlayered too or
+   they'd lose to Swiper's defaults the same way. */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-body {
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.75;
-  color: var(--color-steel);
-  background-color: var(--color-surface);
-}
+  body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--color-steel);
+    background-color: var(--color-surface);
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  color: var(--color-penstock);
-  line-height: 1.2;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-penstock);
+    line-height: 1.2;
+  }
 }
 
 /* ── Visible focus rings for keyboard users ── */

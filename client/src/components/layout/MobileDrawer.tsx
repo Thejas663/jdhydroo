@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { X, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
@@ -6,6 +6,8 @@ import { navItems } from '../../data/nav';
 import { site } from '../../data/site';
 import { useLockBodyScroll } from '../../hooks/useLockBodyScroll';
 import { imageFallback } from '../../utils/imageFallback';
+
+const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 interface MobileDrawerProps {
   open: boolean;
@@ -15,10 +17,57 @@ interface MobileDrawerProps {
 export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
   const location = useLocation();
   const [productsExpanded, setProductsExpanded] = useState(false);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+  const onCloseRef = useRef(onClose);
   useLockBodyScroll(open);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
 
   // Close on route change
   useEffect(() => onClose(), [location]);
+
+  // Trap focus inside the drawer while open, close on Escape, and restore
+  // focus to whatever opened it (the hamburger button) on close.
+  useEffect(() => {
+    if (!open) return;
+
+    previouslyFocusedRef.current = document.activeElement as HTMLElement;
+    const drawer = drawerRef.current;
+    drawer?.querySelector<HTMLElement>(FOCUSABLE_SELECTOR)?.focus();
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        onCloseRef.current();
+        return;
+      }
+      if (e.key !== 'Tab' || !drawer) return;
+
+      const focusables = Array.from(
+        drawer.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+      ).filter((el) => el.offsetParent !== null);
+      if (focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocusedRef.current?.focus();
+    };
+  }, [open]);
 
   return (
     <>
@@ -34,6 +83,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
 
       {/* Drawer panel */}
       <div
+        ref={drawerRef}
         id="mobile-drawer"
         role="dialog"
         aria-modal="true"

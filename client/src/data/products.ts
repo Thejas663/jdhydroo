@@ -1,19 +1,30 @@
-export interface SpecGroup {
-  heading?: string;
-  intro?: string;
-  specs: string[];
-}
+import { z } from 'zod';
 
-export interface Product {
-  slug: string;
-  title: string;
-  image: string;
-  excerpt: string;
-  intro: string;
-  groups: SpecGroup[];
-}
+const specGroupSchema = z.object({
+  heading: z.string().optional(),
+  intro: z.string().optional(),
+  specs: z.array(z.string()),
+});
 
-export const products: Product[] = [
+const productSchema = z.object({
+  slug: z.string(),
+  title: z.string(),
+  image: z.string(),
+  excerpt: z.string(),
+  intro: z.string(),
+  groups: z.array(specGroupSchema),
+  // Master Brief v2 §16 content-model fields — added in Phase 7.
+  family: z.enum(['turbine', 'valve']),
+  headRangeM: z.string().optional(),
+  capacityRangeMW: z.string().optional(),
+  datasheetPdf: z.string().optional(),
+  order: z.number(),
+});
+
+export type SpecGroup = z.infer<typeof specGroupSchema>;
+export type Product = z.infer<typeof productSchema>;
+
+const rawProducts: Product[] = [
   {
     slug: 'aerating-valve',
     title: 'Aerating Valve',
@@ -31,6 +42,8 @@ export const products: Product[] = [
         ],
       },
     ],
+    family: 'valve',
+    order: 1,
   },
   {
     slug: 'pelton-turbine',
@@ -54,6 +67,9 @@ export const products: Product[] = [
         ],
       },
     ],
+    family: 'turbine',
+    headRangeM: 'Up to 1,000 m',
+    order: 2,
   },
   {
     slug: 'kaplan-turbine',
@@ -78,6 +94,9 @@ export const products: Product[] = [
         ],
       },
     ],
+    family: 'turbine',
+    headRangeM: 'Up to 70 m',
+    order: 3,
   },
   {
     slug: 'valve',
@@ -110,6 +129,8 @@ export const products: Product[] = [
         ],
       },
     ],
+    family: 'valve',
+    order: 4,
   },
   {
     slug: 'francis-turbine',
@@ -128,6 +149,9 @@ export const products: Product[] = [
         ],
       },
     ],
+    family: 'turbine',
+    headRangeM: 'Up to 400 m',
+    order: 5,
   },
   {
     slug: 'slide-valve',
@@ -146,6 +170,8 @@ export const products: Product[] = [
         ],
       },
     ],
+    family: 'valve',
+    order: 6,
   },
   {
     slug: 'needle-valve',
@@ -169,5 +195,9 @@ export const products: Product[] = [
         ],
       },
     ],
+    family: 'valve',
+    order: 7,
   },
 ];
+
+export const products: Product[] = z.array(productSchema).parse(rawProducts);

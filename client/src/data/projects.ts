@@ -1,12 +1,27 @@
-export interface Project {
-  slug: string;
-  title: string;
-  image: string;
-  imageWebP: string;
-  excerpt: string;
-}
+import { z } from 'zod';
 
-export const projects: Project[] = [
+const projectSchema = z.object({
+  slug: z.string(),
+  title: z.string(),
+  image: z.string(),
+  imageWebP: z.string(),
+  excerpt: z.string(),
+  // Master Brief v2 §16 content-model fields — added in Phase 7. No real
+  // project data exists yet (Brief §21 item 4); left optional so these
+  // placeholder entries still validate until real case studies arrive.
+  client: z.string().optional(),
+  location: z.string().optional(),
+  state: z.string().optional(),
+  capacityMW: z.string().optional(),
+  productType: z.string().optional(),
+  year: z.number().optional(),
+  sector: z.enum(['government', 'private']).optional(),
+  gallery: z.array(z.string()).optional(),
+});
+
+export type Project = z.infer<typeof projectSchema>;
+
+const rawProjects: Project[] = [
   {
     slug: 'power-generation',
     title: 'Power Generation',
@@ -24,3 +39,5 @@ export const projects: Project[] = [
       'Expanding into the industrialisation sector, we have completed a new project in chemical processing, bringing our engineering expertise to one of the most demanding industrial environments.',
   },
 ];
+
+export const projects: Project[] = z.array(projectSchema).parse(rawProjects);

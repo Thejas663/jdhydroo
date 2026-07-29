@@ -36,7 +36,7 @@ export default function ProjectsCarousel() {
         >
           {projects.map((project) => (
             <SwiperSlide key={project.slug}>
-              <article className="group rounded-sm overflow-hidden border border-border bg-white shadow-sm transition-all duration-300 hover:translate-y-[-6px] hover:shadow-md">
+              <article className="group rounded-sm overflow-hidden border border-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal hover:shadow-md">
                 <div className="overflow-hidden h-52">
                   <picture>
                     <source srcSet={project.imageWebP} type="image/webp" />

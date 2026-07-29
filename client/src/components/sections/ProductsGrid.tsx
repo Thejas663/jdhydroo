@@ -44,7 +44,7 @@ export default function ProductsGrid() {
                 <Link
                   key={product.slug}
                   to={`/services/${product.slug}`}
-                  className="group block p-6 bg-white border border-border hover:border-teal transition-colors rounded-sm"
+                  className="group block p-6 bg-white border border-border rounded-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal hover:shadow-md"
                 >
                   <h3 className="font-display font-semibold text-lg text-penstock mb-2 group-hover:text-teal-text transition-colors">
                     {product.title}

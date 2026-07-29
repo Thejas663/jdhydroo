@@ -46,7 +46,7 @@ export default function Products() {
               <RevealCard
                 key={product.slug}
                 delay={i * 100}
-                className="group bg-white border border-border rounded-sm overflow-hidden hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300"
+                className="group bg-white border border-border rounded-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-teal hover:shadow-md"
               >
                 <div className="overflow-hidden h-48">
                   <img

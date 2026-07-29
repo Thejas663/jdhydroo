@@ -24,7 +24,7 @@ export function Card({
     <article
       className={clsx(
         'group bg-white border border-border rounded-sm overflow-hidden transition-all duration-300',
-        'hover:translate-y-[-6px] hover:shadow-lg',
+        'hover:-translate-y-1 hover:border-teal hover:shadow-md',
         className
       )}
     >

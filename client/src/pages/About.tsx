@@ -75,7 +75,7 @@ export default function About() {
           <div ref={turbineBlockRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <button
               onClick={() => openLightbox(0)}
-              className="block w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+              className="block w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal"
               aria-label="View full-size turbine image"
             >
               <img
@@ -88,7 +88,7 @@ export default function About() {
             </button>
 
             <div>
-              <p className="text-body leading-relaxed font-semibold mb-8">
+              <p className="text-steel leading-relaxed font-semibold mb-8">
                 {site.blurb}
               </p>
 
@@ -117,7 +117,7 @@ export default function About() {
                 <button
                   onClick={() => openLightbox(i + 1)}
                   className={[
-                    'block w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary',
+                    'block w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal',
                     i % 2 !== 0 ? 'lg:order-last' : '',
                   ].join(' ')}
                   aria-label={`View full-size image: ${block.heading}`}
@@ -132,10 +132,10 @@ export default function About() {
                 </button>
 
                 <div>
-                  <h4 className="font-display font-semibold text-xl text-primary mb-4">
+                  <h4 className="font-display font-semibold text-xl text-teal-text mb-4">
                     {block.heading}
                   </h4>
-                  <p className="text-body leading-relaxed">{block.body}</p>
+                  <p className="text-steel leading-relaxed">{block.body}</p>
                 </div>
               </RevealCard>
             ))}

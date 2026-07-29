@@ -35,19 +35,22 @@ export default function PageBanner({
               <Link
                 to={crumb.to}
                 title={`Go to ${crumb.label}.`}
-                className="text-white/80 hover:text-primary transition-colors"
+                className="text-white/80 hover:text-teal-on-dark transition-colors"
               >
                 {crumb.label}
               </Link>
               <span className="text-white/60" aria-hidden>›</span>
             </li>
           ))}
-          {/* Bright amber is correct here — this sits on the dark banner
-              overlay/image, not on white. It only fails contrast right now
-              because the real banner background image doesn't exist yet
+          {/* Flow Amber is correct here — this sits on the dark banner
+              overlay/image, not on white (7.58:1 verified against
+              --color-penstock). It only fails contrast right now because
+              the real banner background image doesn't exist yet
               (placeholder falls through to a plain white page background);
-              this resolves on its own once a real image is supplied. */}
-          <li aria-current="page" className="text-primary">
+              this resolves on its own once a real image is supplied. Amber
+              is deliberately used only for this one "current page" highlight
+              — everywhere else on dark backgrounds uses teal, see index.css. */}
+          <li aria-current="page" className="text-amber">
             {title}
           </li>
         </ol>

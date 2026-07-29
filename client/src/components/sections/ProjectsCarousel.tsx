@@ -50,15 +50,15 @@ export default function ProjectsCarousel() {
                   </picture>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display font-semibold text-lg text-heading mb-2">
+                  <h3 className="font-display font-semibold text-lg text-penstock mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-body leading-relaxed mb-4">
+                  <p className="text-sm text-steel leading-relaxed mb-4">
                     {project.excerpt}
                   </p>
                   <Link
                     to={`/projects/${project.slug}`}
-                    className="text-sm font-semibold text-primary-dark hover:text-primary-h transition-colors"
+                    className="text-sm font-semibold text-teal-text hover:text-teal-hover transition-colors"
                   >
                     View detail &rarr;
                   </Link>

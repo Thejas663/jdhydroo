@@ -44,15 +44,15 @@ export default function ProductsGrid() {
                 <Link
                   key={product.slug}
                   to={`/services/${product.slug}`}
-                  className="group block p-6 bg-white border border-border hover:border-primary transition-colors rounded-sm"
+                  className="group block p-6 bg-white border border-border hover:border-teal transition-colors rounded-sm"
                 >
-                  <h3 className="font-display font-semibold text-lg text-heading mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="font-display font-semibold text-lg text-penstock mb-2 group-hover:text-teal-text transition-colors">
                     {product.title}
                   </h3>
-                  <p className="text-sm text-body leading-relaxed mb-4">
+                  <p className="text-sm text-steel leading-relaxed mb-4">
                     {product.excerpt}
                   </p>
-                  <span className="inline-flex items-center gap-1 text-primary-dark text-sm font-semibold">
+                  <span className="inline-flex items-center gap-1 text-teal-text text-sm font-semibold">
                     Read more <ArrowRight size={14} aria-hidden />
                   </span>
                 </Link>

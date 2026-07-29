@@ -39,11 +39,11 @@ export function Card({
         </div>
       )}
       <div className="p-6">
-        <h3 className="font-display font-semibold text-xl text-heading mb-2 group-hover:text-primary transition-colors">
+        <h3 className="font-display font-semibold text-xl text-penstock mb-2 group-hover:text-teal-text transition-colors">
           {title}
         </h3>
         {description && (
-          <p className="text-body text-sm leading-relaxed mb-4">
+          <p className="text-steel text-sm leading-relaxed mb-4">
             {description}
           </p>
         )}
@@ -51,7 +51,7 @@ export function Card({
         {link && (
           <a
             href={link}
-            className="inline-flex items-center text-sm font-semibold text-primary hover:text-primary-h transition-colors mt-2"
+            className="inline-flex items-center text-sm font-semibold text-teal-text hover:text-teal-hover transition-colors mt-2"
           >
             {linkText}
           </a>

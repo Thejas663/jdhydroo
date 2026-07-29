@@ -28,17 +28,17 @@ export default function Contact() {
           <div ref={blockRef} className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact details */}
             <div>
-              <h2 className="font-display font-bold text-2xl text-heading mb-3">
+              <h2 className="font-display font-bold text-2xl text-penstock mb-3">
                 Contact Details
               </h2>
-              <p className="text-body mb-8">
+              <p className="text-steel mb-8">
                 Get in touch with us for any questions about our industries or projects.
               </p>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <MapPin size={22} className="mt-0.5 shrink-0 text-primary" aria-hidden />
-                  <address className="not-italic text-sm text-body leading-relaxed">
+                  <MapPin size={22} className="mt-0.5 shrink-0 text-teal" aria-hidden />
+                  <address className="not-italic text-sm text-steel leading-relaxed">
                     {site.address.lines.map((line, i) => (
                       <span key={i} className="block">{line}</span>
                     ))}
@@ -47,23 +47,23 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <Mail size={22} className="shrink-0 text-primary" aria-hidden />
+                  <Mail size={22} className="shrink-0 text-teal" aria-hidden />
                   <a
                     href={`mailto:${site.email}`}
-                    className="text-sm text-body hover:text-primary transition-colors"
+                    className="text-sm text-steel hover:text-teal-text transition-colors"
                   >
                     {site.email}
                   </a>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <Phone size={22} className="mt-0.5 shrink-0 text-primary" aria-hidden />
+                  <Phone size={22} className="mt-0.5 shrink-0 text-teal" aria-hidden />
                   <div className="space-y-1">
                     {site.phones.map((phone, i) => (
                       <a
                         key={phone}
                         href={`tel:${phone}`}
-                        className="block text-sm text-body hover:text-primary transition-colors"
+                        className="block text-sm text-steel hover:text-teal-text transition-colors"
                       >
                         {site.phonesDisplay[i]}
                       </a>
@@ -80,7 +80,7 @@ export default function Contact() {
                         aria-label={platform}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-body hover:text-primary transition-colors"
+                        className="text-steel hover:text-teal-text transition-colors"
                       >
                         <Icon size={20} aria-hidden />
                       </a>

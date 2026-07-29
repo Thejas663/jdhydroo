@@ -105,7 +105,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
           <button
             onClick={onClose}
             aria-label="Close navigation menu"
-            className="p-2 text-heading hover:text-primary transition-colors cursor-pointer"
+            className="p-2 text-penstock hover:text-teal-text transition-colors cursor-pointer"
           >
             <X size={20} aria-hidden />
           </button>
@@ -120,7 +120,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                   // Accordion for Products dropdown
                   <>
                     <button
-                      className="w-full flex items-center justify-between px-3 py-2 font-display font-semibold text-heading hover:text-primary transition-colors cursor-pointer"
+                      className="w-full flex items-center justify-between px-3 py-2 font-display font-semibold text-penstock hover:text-teal-text transition-colors cursor-pointer"
                       onClick={() => setProductsExpanded((v) => !v)}
                       aria-expanded={productsExpanded}
                       aria-controls="mobile-products-menu"
@@ -143,7 +143,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                             to={child.to}
                             className={({ isActive }) => [
                               'block px-3 py-2 text-sm font-display font-semibold transition-colors',
-                              isActive ? 'text-primary-dark' : 'text-body hover:text-primary-dark',
+                              isActive ? 'text-teal-text' : 'text-steel hover:text-teal-text',
                             ].join(' ')}
                           >
                             {child.label}
@@ -157,7 +157,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                     to={item.to}
                     className={({ isActive }) => [
                       'block px-3 py-2 font-display font-semibold transition-colors',
-                      isActive ? 'text-primary-dark' : 'text-heading hover:text-primary-dark',
+                      isActive ? 'text-teal-text' : 'text-penstock hover:text-teal-text',
                     ].join(' ')}
                   >
                     {item.label}

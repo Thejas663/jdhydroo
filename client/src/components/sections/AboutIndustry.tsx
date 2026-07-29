@@ -36,10 +36,10 @@ export default function AboutIndustry() {
                 <li key={i} className="flex items-start gap-3">
                   <CheckCircle2
                     size={18}
-                    className="mt-0.5 shrink-0 text-primary"
+                    className="mt-0.5 shrink-0 text-teal"
                     aria-hidden
                   />
-                  <span className="text-body text-sm leading-relaxed">{item}</span>
+                  <span className="text-steel text-sm leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>

@@ -29,10 +29,10 @@ export default function Products() {
         <Container>
           <div ref={introRef}>
             <SectionHeading eyebrow="We are Jaladhara" title="Our Products" />
-            <p className="text-body leading-relaxed mb-2">
+            <p className="text-steel leading-relaxed mb-2">
               We offer many types of products like Hydraulic Turbines, Valves, Slide Valve and many more.
             </p>
-            <p className="text-body leading-relaxed">
+            <p className="text-steel leading-relaxed">
               We also provide solutions for all your electrical requirements.
             </p>
           </div>
@@ -58,15 +58,15 @@ export default function Products() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display font-semibold text-lg text-heading mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="font-display font-semibold text-lg text-penstock mb-3 group-hover:text-teal-text transition-colors">
                     {product.title}
                   </h3>
-                  <p className="text-sm text-body leading-relaxed mb-5">
+                  <p className="text-sm text-steel leading-relaxed mb-5">
                     {product.excerpt}
                   </p>
                   <Link
                     to={`/services/${product.slug}`}
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary-dark hover:underline"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-teal-text hover:underline"
                     aria-label={`Read more about ${product.title}`}
                   >
                     Read More <ArrowRight size={14} aria-hidden />

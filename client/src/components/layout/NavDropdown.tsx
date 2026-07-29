@@ -43,7 +43,7 @@ export default function NavDropdown({ item }: NavDropdownProps) {
       onMouseLeave={() => setOpen(false)}
     >
       <button
-        className="flex items-center gap-1 font-display font-semibold text-[15px] tracking-wide text-heading hover:text-primary transition-colors cursor-pointer"
+        className="flex items-center gap-1 font-display font-semibold text-[15px] tracking-wide text-penstock hover:text-teal-text transition-colors cursor-pointer"
         aria-expanded={open}
         aria-controls="products-menu"
         aria-haspopup="true"
@@ -77,8 +77,8 @@ export default function NavDropdown({ item }: NavDropdownProps) {
               className={({ isActive }) => [
                 'block px-5 py-2 text-sm font-display font-semibold transition-colors',
                 isActive
-                  ? 'text-primary-dark bg-surface-alt'
-                  : 'text-heading hover:text-primary-dark hover:bg-surface-alt',
+                  ? 'text-teal-text bg-spillway'
+                  : 'text-penstock hover:text-teal-text hover:bg-spillway',
               ].join(' ')}
             >
               {child.label}

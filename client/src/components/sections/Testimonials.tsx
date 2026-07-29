@@ -34,11 +34,11 @@ export default function Testimonials() {
               <div className="text-center px-6 py-4">
                 <Quote
                   size={40}
-                  className="mx-auto mb-6 text-primary opacity-40 rotate-180"
+                  className="mx-auto mb-6 text-teal opacity-40 rotate-180"
                   aria-hidden
                 />
                 <blockquote className="font-body">
-                  <p className="text-body text-lg leading-relaxed italic mb-8">
+                  <p className="text-steel text-lg leading-relaxed italic mb-8">
                     "{t.quote}"
                   </p>
                   <footer className="flex flex-col items-center gap-2">
@@ -50,10 +50,10 @@ export default function Testimonials() {
                       onError={imageFallback('https://placehold.co/100?text=Avatar')}
                     />
                     <cite className="not-italic">
-                      <span className="block font-display font-semibold text-heading text-base">
+                      <span className="block font-display font-semibold text-penstock text-base">
                         {t.name}
                       </span>
-                      <span className="block text-sm text-body">{t.location}</span>
+                      <span className="block text-sm text-steel">{t.location}</span>
                     </cite>
                   </footer>
                 </blockquote>

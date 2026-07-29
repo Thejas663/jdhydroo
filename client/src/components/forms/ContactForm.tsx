@@ -41,7 +41,7 @@ export function ContactForm() {
   };
 
   const fieldBase =
-    'w-full px-4 py-3 border border-border rounded-sm text-sm text-heading bg-white focus:outline-none focus:border-primary transition-colors';
+    'w-full px-4 py-3 border border-border rounded-sm text-sm text-penstock bg-white focus:outline-none focus:border-teal transition-colors';
   const errorClass = 'border-red-400 focus:border-red-400';
 
   return (
@@ -58,7 +58,7 @@ export function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="contact-name" className="block text-sm font-semibold mb-1 text-heading">
+          <label htmlFor="contact-name" className="block text-sm font-semibold mb-1 text-penstock">
             Your Name <span aria-hidden className="text-red-500">*</span>
           </label>
           <input
@@ -79,7 +79,7 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="contact-email" className="block text-sm font-semibold mb-1 text-heading">
+          <label htmlFor="contact-email" className="block text-sm font-semibold mb-1 text-penstock">
             Your Email <span aria-hidden className="text-red-500">*</span>
           </label>
           <input
@@ -104,14 +104,14 @@ export function ContactForm() {
       </div>
 
       <div className="mt-5">
-        <label htmlFor="contact-subject" className="block text-sm font-semibold mb-1 text-heading">
+        <label htmlFor="contact-subject" className="block text-sm font-semibold mb-1 text-penstock">
           Subject
         </label>
         <input id="contact-subject" type="text" className={fieldBase} {...register('subject')} />
       </div>
 
       <div className="mt-5">
-        <label htmlFor="contact-message" className="block text-sm font-semibold mb-1 text-heading">
+        <label htmlFor="contact-message" className="block text-sm font-semibold mb-1 text-penstock">
           Your Message <span aria-hidden className="text-red-500">*</span>
         </label>
         <textarea

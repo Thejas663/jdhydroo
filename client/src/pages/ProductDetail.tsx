@@ -58,23 +58,23 @@ export default function ProductDetail() {
                 {product.groups.map((group, gi) => (
                   <div key={gi}>
                     {group.heading && (
-                      <h3 className="font-display font-semibold text-xl text-heading mb-3">
+                      <h3 className="font-display font-semibold text-xl text-penstock mb-3">
                         {group.heading}
                       </h3>
                     )}
                     {group.intro && (
-                      <p className="text-body leading-relaxed mb-4">{group.intro}</p>
+                      <p className="text-steel leading-relaxed mb-4">{group.intro}</p>
                     )}
-                    <p className="font-semibold text-heading mb-3">Product Details:</p>
+                    <p className="font-semibold text-penstock mb-3">Product Details:</p>
                     <ul className="space-y-2">
                       {group.specs.map((spec, si) => (
                         <li key={si} className="flex items-start gap-3">
                           <CheckCircle2
                             size={16}
-                            className="mt-0.5 shrink-0 text-primary"
+                            className="mt-0.5 shrink-0 text-teal"
                             aria-hidden
                           />
-                          <span className="text-body text-sm">{spec}</span>
+                          <span className="text-steel text-sm">{spec}</span>
                         </li>
                       ))}
                     </ul>
@@ -90,8 +90,8 @@ export default function ProductDetail() {
                 aria-label="All Products navigation"
               >
                 <div
-                  className="px-5 py-4 font-display font-bold text-heading"
-                  style={{ backgroundColor: 'var(--color-primary)' }}
+                  className="px-5 py-4 font-display font-bold text-white"
+                  style={{ backgroundColor: 'var(--color-teal)' }}
                 >
                   All Products
                 </div>
@@ -105,8 +105,8 @@ export default function ProductDetail() {
                             [
                               'flex items-center justify-between px-5 py-3 text-sm font-display font-semibold transition-colors',
                               isActive
-                                ? 'text-heading bg-primary'
-                                : 'text-heading hover:text-primary hover:bg-surface-alt',
+                                ? 'text-white bg-teal'
+                                : 'text-penstock hover:text-teal-text hover:bg-spillway',
                             ].join(' ')
                           }
                         >

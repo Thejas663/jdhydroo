@@ -5,7 +5,7 @@ export default function TopBar() {
   return (
     <div
       className="hidden md:block w-full text-sm"
-      style={{ backgroundColor: 'var(--color-topbar-bg)', color: '#a0a8b4' }}
+      style={{ backgroundColor: 'var(--color-penstock)', color: '#a0a8b4' }}
     >
       <div className="mx-auto max-w-container px-[15px] flex items-center justify-between h-10">
         {/* Left — tagline */}
@@ -16,7 +16,7 @@ export default function TopBar() {
           {/* Phone */}
           <a
             href={`tel:${site.phones[0]}`}
-            className="flex items-center gap-1 hover:text-primary transition-colors"
+            className="flex items-center gap-1 hover:text-teal-on-dark transition-colors"
           >
             <Phone size={13} aria-hidden />
             <span>{site.phonesDisplay[0]}</span>
@@ -25,7 +25,7 @@ export default function TopBar() {
           {/* Email */}
           <a
             href={`mailto:${site.email}`}
-            className="flex items-center gap-1 hover:text-primary transition-colors"
+            className="flex items-center gap-1 hover:text-teal-on-dark transition-colors"
           >
             <Mail size={13} aria-hidden />
             <span>{site.email}</span>

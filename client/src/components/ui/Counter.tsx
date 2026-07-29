@@ -19,7 +19,7 @@ export function Counter({ stat }: CounterProps) {
   return (
     <div ref={ref} className="text-center">
       <p
-        className="font-display font-bold text-4xl text-primary leading-none mb-1"
+        className="font-display font-bold text-4xl text-teal-text leading-none mb-1"
         aria-live="polite"
         aria-atomic="true"
       >
@@ -29,7 +29,7 @@ export function Counter({ stat }: CounterProps) {
           <>0{stat.suffix}</>
         )}
       </p>
-      <p className="text-sm font-semibold text-heading uppercase tracking-wide">
+      <p className="text-sm font-semibold text-penstock uppercase tracking-wide">
         {stat.label}
       </p>
     </div>

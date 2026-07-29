@@ -10,13 +10,13 @@ export default function NotFound() {
       </Helmet>
 
       <div className="flex flex-col items-center justify-center min-h-[70vh] text-center px-6">
-        <p className="font-display font-bold text-8xl text-primary mb-4" aria-hidden>
+        <p className="font-display font-bold text-8xl text-teal-text mb-4" aria-hidden>
           404
         </p>
-        <h1 className="font-display font-bold text-2xl text-heading mb-4">
+        <h1 className="font-display font-bold text-2xl text-penstock mb-4">
           Page Not Found
         </h1>
-        <p className="text-body mb-10 max-w-md">
+        <p className="text-steel mb-10 max-w-md">
           The page you're looking for doesn't exist or has been moved. Try our products page or contact us.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">

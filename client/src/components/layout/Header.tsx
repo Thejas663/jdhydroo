@@ -49,8 +49,8 @@ export default function Header({ onHamburgerClick }: HeaderProps) {
                 className={({ isActive }) => [
                   'font-display font-semibold text-[15px] tracking-wide transition-colors duration-200',
                   isActive
-                    ? 'text-primary-dark'
-                    : 'text-heading hover:text-primary-dark',
+                    ? 'text-teal-text'
+                    : 'text-penstock hover:text-teal-text',
                 ].join(' ')}
               >
                 {item.label}
@@ -61,7 +61,7 @@ export default function Header({ onHamburgerClick }: HeaderProps) {
 
         {/* Hamburger — visible below lg only */}
         <button
-          className="lg:hidden p-2 text-heading hover:text-primary transition-colors cursor-pointer"
+          className="lg:hidden p-2 text-penstock hover:text-teal-text transition-colors cursor-pointer"
           onClick={onHamburgerClick}
           aria-label="Open navigation menu"
           aria-expanded={false}

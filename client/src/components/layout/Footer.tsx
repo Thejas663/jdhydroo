@@ -7,7 +7,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer style={{ backgroundColor: 'var(--color-footer-bg)', color: '#a0a8b4' }}>
+    <footer style={{ backgroundColor: 'var(--color-penstock)', color: '#a0a8b4' }}>
       {/* Row 1 — columns */}
       <div className="mx-auto max-w-container px-[15px] py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Brand column */}
@@ -23,7 +23,7 @@ export default function Footer() {
           <p className="text-sm leading-relaxed mb-6">{site.blurb}</p>
           <Link
             to="/about"
-            className="inline-flex items-center gap-2 px-6 py-2 border border-primary text-primary text-sm font-semibold hover:bg-primary hover:text-heading transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-2 border border-teal text-teal-on-dark text-sm font-semibold hover:bg-teal hover:text-white transition-all duration-300"
           >
             About Company
           </Link>
@@ -33,7 +33,7 @@ export default function Footer() {
         <div>
           <h3
             className="font-display font-bold text-white text-lg mb-6 pb-3"
-            style={{ borderBottom: '2px solid var(--color-primary)' }}
+            style={{ borderBottom: '2px solid var(--color-teal)' }}
           >
             Our Products
           </h3>
@@ -42,7 +42,7 @@ export default function Footer() {
               <li key={p.slug}>
                 <NavLink
                   to={`/services/${p.slug}`}
-                  className="text-sm hover:text-primary transition-colors"
+                  className="text-sm hover:text-teal-on-dark transition-colors"
                 >
                   &rsaquo; {p.title}
                 </NavLink>
@@ -55,7 +55,7 @@ export default function Footer() {
         <div>
           <h3
             className="font-display font-bold text-white text-lg mb-6 pb-3"
-            style={{ borderBottom: '2px solid var(--color-primary)' }}
+            style={{ borderBottom: '2px solid var(--color-teal)' }}
           >
             Contact Us
           </h3>
@@ -67,13 +67,13 @@ export default function Footer() {
               <span className="block">Pin Code: {site.address.pin}</span>
             </p>
             <p>
-              <a href={`mailto:${site.email}`} className="hover:text-primary transition-colors">
+              <a href={`mailto:${site.email}`} className="hover:text-teal-on-dark transition-colors">
                 {site.email}
               </a>
             </p>
             {site.phones.map((phone, i) => (
               <p key={phone}>
-                <a href={`tel:${phone}`} className="hover:text-primary transition-colors">
+                <a href={`tel:${phone}`} className="hover:text-teal-on-dark transition-colors">
                   {site.phonesDisplay[i]}
                 </a>
               </p>

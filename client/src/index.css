@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 /* Swiper CSS — imported globally to avoid TS verbatimModuleSyntax errors */
 @import 'swiper/css';
@@ -8,19 +8,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: var(--color-primary);
-  --color-primary-h: var(--color-primary-hover);
-  --color-primary-dark: var(--color-primary-text);
-  --color-heading: var(--color-heading);
-  --color-body: var(--color-body);
+  --color-penstock: var(--color-penstock);
+  --color-teal: var(--color-teal);
+  --color-teal-hover: var(--color-teal-hover);
+  --color-teal-text: var(--color-teal-text);
+  --color-teal-on-dark: var(--color-teal-on-dark);
+  --color-steel: var(--color-steel);
+  --color-spillway: var(--color-spillway);
+  --color-amber: var(--color-amber);
+  --color-contour: var(--color-contour);
   --color-surface: var(--color-surface);
-  --color-surface-alt: var(--color-surface-alt);
-  --color-footer-bg: var(--color-footer-bg);
-  --color-topbar-bg: var(--color-topbar-bg);
   --color-border: var(--color-border);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
 
   --max-width-container: 1170px;
 
@@ -33,30 +35,36 @@
 }
 
 :root {
-  /* Brand colors */
-  --color-primary:        #F5A623;
-  --color-primary-hover:  #DB8F12;
-  /* Amber is ~2:1 on white — fails WCAG AA (4.5:1) as text. Use this darker
-     variant wherever amber renders as readable text (links, active nav
-     state, eyebrow labels) instead of as a background/border accent. */
-  --color-primary-text:   #9C6500;
+  /* Brand colors — Master Brief v2 §5 */
+  --color-penstock:        #0E2233;  /* primary dark — headline text, dark sections, nav */
+  --color-teal:            #14807A;  /* primary accent — backgrounds/borders/icons only, see below */
+  --color-teal-hover:      #0F635F;  /* darker teal for hover backgrounds */
+  /* Reservoir Teal is ~4.35:1 on Spillway White — fails WCAG AA (4.5:1) as
+     text on our actual light-page background. These two variants are AA-
+     verified for text; the raw --color-teal above stays background/border-
+     only (its own contrast is fine for that use, just not as text). */
+  --color-teal-text:       #117269;  /* teal as text/links on light backgrounds */
+  --color-teal-on-dark:    #1AA89F;  /* teal as text/links on dark (Penstock) backgrounds */
+  --color-steel:           #45606B;  /* secondary text, borders, muted UI */
+  --color-spillway:        #F2F5F4;  /* light backgrounds (cool, not cream) */
+  /* Flow Amber is ~2:1 on white/Spillway — fails WCAG AA badly as text,
+     same failure mode the old amber had. Background/border/highlight only;
+     pair with --color-penstock text when amber is a background (7.58:1). */
+  --color-amber:           #E2A73B;
+  --color-contour:         #C9D2D1;  /* hairlines, dividers — decorative only */
 
   /* Neutrals */
-  --color-heading:        #1B2431;
-  --color-body:           #6B7280;
-  --color-surface:        #FFFFFF;
-  --color-surface-alt:    #F5F7FA;
-  --color-footer-bg:      #1B2431;
-  --color-topbar-bg:      #141C27;
-  --color-border:         #E5E7EB;
+  --color-surface:         #FFFFFF;
+  --color-border:          #E5E7EB;
 
-  /* Overlays */
-  --overlay-hero:         rgba(20, 28, 39, 0.55);
-  --overlay-crumb:        rgba(20, 28, 39, 0.70);
+  /* Overlays — derived from Penstock Ink */
+  --overlay-hero:          rgba(14, 34, 51, 0.55);
+  --overlay-crumb:         rgba(14, 34, 51, 0.70);
 
-  /* Typography */
-  --font-display: 'Rajdhani', sans-serif;
-  --font-body:    'Open Sans', sans-serif;
+  /* Typography — Master Brief v2 §5 */
+  --font-display: 'Space Grotesk', sans-serif;   /* headlines/section titles only */
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;    /* spec tables, model numbers, data */
 
   /* Spacing rhythm */
   --section-y: clamp(60px, 8vw, 110px);
@@ -73,19 +81,19 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.75;
-  color: var(--color-body);
+  color: var(--color-steel);
   background-color: var(--color-surface);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  color: var(--color-heading);
+  color: var(--color-penstock);
   line-height: 1.2;
 }
 
 /* ── Visible focus rings for keyboard users ── */
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-teal);
   outline-offset: 3px;
 }
 :focus:not(:focus-visible) {
@@ -116,9 +124,9 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Swiper custom overrides ── */
 .swiper-button-next,
 .swiper-button-prev {
-  color: var(--color-primary) !important;
+  color: var(--color-teal) !important;
 }
 
 .swiper-pagination-bullet-active {
-  background: var(--color-primary) !important;
+  background: var(--color-teal) !important;
 }

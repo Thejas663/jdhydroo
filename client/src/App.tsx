@@ -30,7 +30,7 @@ const organizationJsonLd = {
   telephone: site.phones,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Office No. BH-1104 & 1105, 81 Business Hub Sector-79',
+    streetAddress: 'Office No. BH-1104 & 1105, 81 Business Hub Sector-81',
     addressLocality: 'Greater Faridabad',
     addressRegion: 'Haryana',
     postalCode: site.address.pin,

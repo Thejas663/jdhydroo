@@ -89,11 +89,13 @@ export default function Contact() {
                 )}
 
                 {/* TODO(client blocker): confirm the real Google Maps embed URL
-                    for the Sector-79, Greater Faridabad office before launch. */}
+                    for the Sector-81, Greater Faridabad office before launch —
+                    this is still a text-query pin, not a verified exact
+                    location. */}
                 <div className="mt-6 rounded-sm overflow-hidden aspect-video">
                   <iframe
                     title="Jaladhara Hydro Solutions office location"
-                    src="https://www.google.com/maps?q=Sector-79,+Greater+Faridabad,+Haryana+121002&output=embed"
+                    src="https://www.google.com/maps?q=81+Business+Hub+Sector-81,+Greater+Faridabad,+Haryana+121002&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

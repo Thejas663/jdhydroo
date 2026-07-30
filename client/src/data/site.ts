@@ -15,7 +15,7 @@ export const site = {
     lines: [
       'Jaladhara Hydro Solutions Pvt. Ltd',
       'Office No. BH-1104 & 1105,',
-      '81 Business Hub Sector-79,',
+      '81 Business Hub Sector-81,',
       'Greater Faridabad (Delhi NCR)',
     ],
     pin: '121002',

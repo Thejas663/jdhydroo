@@ -20,6 +20,9 @@ export function TechnicalDataTable({ product }: TechnicalDataTableProps) {
   if (product.headRangeM) {
     rows.push({ label: 'Head Range', value: product.headRangeM });
   }
+  if (product.flowRangeM3S) {
+    rows.push({ label: 'Flow Range', value: product.flowRangeM3S });
+  }
   if (product.capacityRangeMW) {
     rows.push({ label: 'Capacity Range', value: product.capacityRangeMW });
   }

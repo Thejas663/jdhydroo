@@ -16,6 +16,7 @@ const productSchema = z.object({
   // Master Brief v2 §16 content-model fields — added in Phase 7.
   family: z.enum(['turbine', 'valve']),
   headRangeM: z.string().optional(),
+  flowRangeM3S: z.string().optional(),
   capacityRangeMW: z.string().optional(),
   datasheetPdf: z.string().optional(),
   order: z.number(),
@@ -56,7 +57,7 @@ const rawProducts: Product[] = [
     groups: [
       {
         specs: [
-          'Heads up to 1,000 Meters',
+          'Heads up to 500 Meters',
           'Horizontal axis (1 to 3 jets)',
           'Vertical axis (2 to 6 jets)',
           'Fully Forged or Cast runner',
@@ -68,7 +69,9 @@ const rawProducts: Product[] = [
       },
     ],
     family: 'turbine',
-    headRangeM: 'Up to 1,000 m',
+    headRangeM: 'Up to 500 m',
+    flowRangeM3S: 'Up to 2 m³/s',
+    capacityRangeMW: 'Up to 15 MW',
     order: 2,
   },
   {
@@ -82,7 +85,7 @@ const rawProducts: Product[] = [
     groups: [
       {
         specs: [
-          'Heads up to 70 Meters',
+          'Heads up to 12 Meters',
           'Runners with 3 to 8 blades',
           'Double or Single regulated',
           'With or without Gearbox',
@@ -95,7 +98,9 @@ const rawProducts: Product[] = [
       },
     ],
     family: 'turbine',
-    headRangeM: 'Up to 70 m',
+    headRangeM: 'Up to 12 m',
+    flowRangeM3S: 'Up to 40 m³/s',
+    capacityRangeMW: 'Up to 10 MW',
     order: 3,
   },
   {
@@ -143,14 +148,16 @@ const rawProducts: Product[] = [
     groups: [
       {
         specs: [
-          'Heads up to 400 Meters',
+          'Heads up to 250 Meters',
           'High operating efficiency at full load',
           'Suitable for medium head projects',
         ],
       },
     ],
     family: 'turbine',
-    headRangeM: 'Up to 400 m',
+    headRangeM: 'Up to 250 m',
+    flowRangeM3S: 'Up to 20 m³/s',
+    capacityRangeMW: 'Up to 15 MW',
     order: 5,
   },
   {

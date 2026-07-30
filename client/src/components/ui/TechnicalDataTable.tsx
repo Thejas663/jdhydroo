@@ -10,12 +10,18 @@ interface TechnicalDataTableProps {
  * range, capacity, shaft orientation, regulation type), set in the mono
  * utility face. Only renders rows we actually have real data for — never
  * fabricates a value. Returns null if there isn't enough to justify a
- * table (family alone isn't enough).
+ * table (family alone isn't enough). Covers both turbine-shaped specs
+ * (head/flow/capacity range) and valve-shaped specs (model, pressure
+ * rating, size range) — a product only ever populates the fields that
+ * apply to it.
  */
 export function TechnicalDataTable({ product }: TechnicalDataTableProps) {
-  const rows: { label: string; value: ReactNode }[] = [
-    { label: 'Family', value: product.family === 'turbine' ? 'Turbine' : 'Valve' },
-  ];
+  const rows: { label: string; value: ReactNode }[] = [];
+
+  if (product.model) {
+    rows.push({ label: 'Model', value: product.model });
+  }
+  rows.push({ label: 'Family', value: product.family === 'turbine' ? 'Turbine' : 'Valve' });
 
   if (product.headRangeM) {
     rows.push({ label: 'Head Range', value: product.headRangeM });
@@ -25,6 +31,12 @@ export function TechnicalDataTable({ product }: TechnicalDataTableProps) {
   }
   if (product.capacityRangeMW) {
     rows.push({ label: 'Capacity Range', value: product.capacityRangeMW });
+  }
+  if (product.pressureRating) {
+    rows.push({ label: 'Pressure Rating', value: product.pressureRating });
+  }
+  if (product.sizeRangeDN) {
+    rows.push({ label: 'Size Range', value: product.sizeRangeDN });
   }
   if (product.datasheetPdf) {
     rows.push({

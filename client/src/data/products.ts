@@ -18,6 +18,9 @@ const productSchema = z.object({
   headRangeM: z.string().optional(),
   flowRangeM3S: z.string().optional(),
   capacityRangeMW: z.string().optional(),
+  model: z.string().optional(),
+  pressureRating: z.string().optional(),
+  sizeRangeDN: z.string().optional(),
   datasheetPdf: z.string().optional(),
   order: z.number(),
 });
@@ -33,17 +36,37 @@ const rawProducts: Product[] = [
     excerpt:
       'Air valves, type AV, for aeration and deaeration of water pipelines, preventing negative pressure disturbances in pipeline operation.',
     intro:
-      'Air valves, type AV, are used for aeration and deaeration of water pipelines. The requirement of aeration of pipelines arises when, as a result of certain working conditions, negative pressure has been created in the line. This negative pressure can cause disturbances in the operation. During deaeration of pipelines atmospheric air which has been released at high points of the system is expelled.',
+      'Air valves, type AV, are used for aeration and deaeration of water pipelines. The requirement of aeration of pipelines arises when, as a result of certain working conditions, negative pressure has been created in the line. This negative pressure can cause disturbances in the operation. During deaeration of pipelines atmospheric air which has been released at high points of the system is expelled. A typical application is pipe-break protection systems in hydro power stations: after a penstock burst downstream of the main inlet valve (MIV), the resulting vacuum can collapse the entire penstock line if air isn’t let in fast enough — the AV valve automatically generates the closing command for the power penstock valve (PPV) to prevent this.',
     groups: [
       {
+        heading: 'Design Features',
         specs: [
-          'High performance deaeration',
-          'Automatic aeration at vacuum pressure conditions',
-          'Robust build and long operational lifetime',
+          'Automatic air relief valve',
+          'Aerating / deaerating device',
+          'Normally closed by means of spring',
+          'High venting capacity',
+          'Opens under underpressure in the pipeline',
+          'Oil damper for smooth movement',
+          'Rated for water service temperature up to 70°C',
+          'No lubrication points — maintenance free',
+        ],
+      },
+      {
+        heading: 'Construction',
+        specs: [
+          'Body — Carbon Steel / Stainless Steel',
+          'Seal Disc — Carbon Steel',
+          'Main Seals — NBR',
+          'Clamping Ring — Carbon Steel',
+          'Spindle — Stainless Steel',
+          'Springs — Spring Steel',
         ],
       },
     ],
     family: 'valve',
+    model: 'JD-AV-3501600',
+    pressureRating: 'PN6, PN10, PN16, PN25, PN40',
+    sizeRangeDN: 'DN350–DN1600',
     order: 1,
   },
   {
@@ -165,19 +188,37 @@ const rawProducts: Product[] = [
     title: 'Slide Valve',
     image: '/images/products/slide-valve.webp',
     excerpt:
-      'Robust valves designed for isolating flows under various system conditions, featuring high operational reliability.',
+      'Used primarily for bypass line applications — reduces high velocity and minimizes cavitation, with the outlet diaphragm acting as an energy dissipater.',
     intro:
-      'We supply slide valves designed for reliable operation and isolating flows under high working pressure.',
+      'The Slide Valve is used primarily for bypass line applications. It reduces high velocity in the bypass line and minimizes cavitation, with the outlet diaphragm acting as an energy dissipater. It is operated by means of hydraulic oil, with switches provided to sense fully open and fully closed conditions.',
     groups: [
       {
+        heading: 'Design Features',
         specs: [
-          'Compact face-to-face dimensions',
-          'Minimal pressure loss in fully open state',
-          'Reliable sealing mechanism',
+          'Heavy forged design',
+          'Metal-to-metal sealing system',
+          'Self-closing tendency under internal water pressure',
+          'Robust design',
+          'Opens and closes via hydraulic oil system',
+          'Optical and electrical position indicator',
+          'Position moves axially',
+          'No lubrication points — maintenance free',
+        ],
+      },
+      {
+        heading: 'Construction',
+        specs: [
+          'Body — X20Cr13 QT650 / SS304 / 316 / 410 / 420 / Eq.',
+          'Piston — X Cr Ni Mo 13-4 QT900 / SS431 / Eq.',
+          'Outer Plate — X20Cr13 QT650 / SS304 / 316 / 410 / 420 / Eq.',
+          'Seals — NBR / Polyurethane',
         ],
       },
     ],
     family: 'valve',
+    model: 'JD-SLV-50500',
+    pressureRating: 'PN16, PN25, PN40, PN63, PN100, PN160',
+    sizeRangeDN: 'DN50–DN500',
     order: 6,
   },
   {
@@ -185,24 +226,33 @@ const rawProducts: Product[] = [
     title: 'Needle Valve',
     image: '/images/products/needle-valve.webp',
     excerpt:
-      'Used primarily for bypass line applications, operated by hydraulic oil with full open/closed position sensing.',
+      'Used primarily for bypass line applications — reduces high velocity and minimizes cavitation, with a positive sealing system driven by internal water pressure.',
     intro:
-      'Needle Valve is mainly used for Bypass line application. It is operated by means of hydraulic oil. Switches are provided to sense fully Open and closed condition.',
+      'The Needle Valve is used primarily for bypass line applications. It reduces high velocity in the bypass line and minimizes cavitation, is easy to operate, and provides a positive sealing system driven by internal water pressure. Available in 120° and 90° angle configurations; a gear-operated version is also available on request.',
     groups: [
       {
+        heading: 'Configurations',
         specs: [
-          '100% tightness',
-          'High pressure ratings available – up to 160 bar',
-          'Compact style and low weight',
-          'Metallic, very long-life main seal',
-          'Easy to operate (manually and electrically)',
-          'Self-closing tendency',
-          'Positive sealing system due to the internal water pressure',
-          'Metal to metal Sealing System',
+          '120° Angle Needle Valve',
+          '90° Angle Needle Valve',
+          'Gear-operated version available on request',
+        ],
+      },
+      {
+        heading: 'Construction',
+        specs: [
+          'Body — Carbon Steel / Stainless Steel',
+          'Seating Ring — Stainless Steel',
+          'Needle — Chromium Steel',
+          'Spindle — Carbon Steel',
+          'Soft Seals — Stainless Steel',
         ],
       },
     ],
     family: 'valve',
+    model: 'JD-NV-65350',
+    pressureRating: 'PN6, PN10, PN16, PN25, PN40, PN63',
+    sizeRangeDN: 'DN65–DN350',
     order: 7,
   },
 ];
